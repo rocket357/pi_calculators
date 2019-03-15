@@ -2,7 +2,7 @@
 
 import sys, os, math
 
-# as this approaches zero, accuracy goes up (as does required time)
+# as "spacing" approaches zero, accuracy goes up (as does required time)
 # based on sys.float_info.min, which on amd64/python 2.7.16 is ~2.22507 x 10^-308
 # since the exponent is -308, we can adjust "spacing" to determine how many divisions we want
 spacing = -300 
@@ -22,7 +22,7 @@ while i < 1.0:
         adj = math.cos(math.asin(i))
         
         # since we know this, we can programatically determine the number of misses
-        miss = miss  - 1 + divisions - int(adj*divisions)
+        miss = miss - 1 + divisions - int(adj*divisions)
         
         # I need to see output sometimes.
         #print "opp: %s, adj: %s, misses: %s" % (i, adj, miss)
