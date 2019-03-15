@@ -33,4 +33,4 @@ print "samples: %s misses: %s" % (samples, miss)
 p = ((samples - miss) / float(samples))*4   # like monte carlo integration, but we're intentionally making a uniform sample space.
 print "math.pi       = %s" % math.pi
 print "calculated pi = %s" % p
-print "Accuracy      = %.5f" % (100*(math.pi - abs(p - math.pi)) / math.pi)
+print "Accuracy      = %f" % (100*(math.pi - abs(p - math.pi)) / math.pi)
