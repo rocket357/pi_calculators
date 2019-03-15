@@ -2,7 +2,10 @@
 
 import sys, os, math
 
-spacing = -300  # as this approaches zero, accuracy goes up (as does required time)
+# as this approaches zero, accuracy goes up (as does required time)
+# based on sys.float_info.min, which on amd64/python 2.7.16 is ~2.22507 x 10^-308
+# since the exponent is -308, we can adjust "spacing" to determine how many divisions we want
+spacing = -300 
 step = float(sys.float_info.min) / 10**spacing
 divisions = int(1/(float(sys.float_info.min)/10**spacing))
 samples = divisions**2
