@@ -1,6 +1,8 @@
 # pi_calculators
 Designed to waste CPU cycles calculating pi
 
+    $ uname -a
+    OpenBSD test.my.domain 6.4 GENERIC.MP#6 amd64
     $ dmesg | grep "Intel(R)"
     cpu0: Intel(R) Core(TM)2 CPU 6400 @ 2.13GHz, 2128.25 MHz, 06-0f-06
     cpu1: Intel(R) Core(TM)2 CPU 6400 @ 2.13GHz, 2128.01 MHz, 06-0f-06
