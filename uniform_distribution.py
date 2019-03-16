@@ -49,7 +49,6 @@ i = step
 threads = {}
 for i in range(0,cores):
         worker = pithread(divisions)
-        worker.start()
         threads[i] = worker
 
 # distribute work
@@ -57,6 +56,9 @@ while i < 1.0:
         for j in range(0, cores):
                 threads[j].work[i] = ''
                 i = i + step
+
+for i in range(0,cores):
+        threads[i].start()
                 
 # work is distributed, now we need to collect the data
 while len(threads) > 0:
