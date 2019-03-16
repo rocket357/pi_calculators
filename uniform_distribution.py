@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys, os, math, sleep
+import sys, os, math, time
 import multiprocessing
 cores = multiprocessing.cpu_count()
 from threading import Thread
@@ -19,7 +19,7 @@ class pithread(THread):
                 self.isRunning = True
                 while True:
                         done = True
-                        sleep.sleep(1)
+                        time.sleep(1)
                         for opp in work.keys():
                                 if work[opp] == '':
                                         done = False
