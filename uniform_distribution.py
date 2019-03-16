@@ -20,11 +20,11 @@ class pithread(Thread):
                 while True:
                         done = True
                         time.sleep(1)
-                        for opp in work.keys():
-                                if work[opp] == '':
+                        for opp in self.work.keys():
+                                if self.work[opp] == '':
                                         done = False
                                         adj = math.cos(math.asin(opp))
-                                        work[opp] = divisions - int(adj*divisions)
+                                        self.work[opp] = divisions - int(adj*divisions)
                         if done:
                                 self.isRunning = False
                                 return
