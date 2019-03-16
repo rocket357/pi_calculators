@@ -46,7 +46,7 @@ i = step
 # create threads
 threads = {}
 for i in range(0,cores):
-        worker = pithread()
+        worker = pithread(divisions)
         worker.start()
         threads[i] = worker
 
