@@ -22,7 +22,7 @@ while i < 1.0:
         adj = math.cos(math.asin(i))
         
         # since we know this, we can programatically determine the number of misses
-        miss = miss + divisions - int(adj*divisions)
+        miss = miss + divisions - math.ceil(adj*divisions)
         
         # I need to see output sometimes.
         #print "opp: %s, adj: %s, misses: %s" % (i, adj, miss)
