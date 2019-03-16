@@ -19,7 +19,8 @@ class pithread(Thread):
                 self.isRunning = True
                 while True:
                         done = True
-                        time.sleep(5)
+                        if len(self.work.keys()) < 1:
+                                time.sleep(1)
                         for opp in self.work.keys():
                                 if self.work[opp] == '':
                                         done = False
