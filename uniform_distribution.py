@@ -47,9 +47,9 @@ i = step
 
 # create threads
 threads = {}
-for i in range(0,cores):
+for j in range(0,cores):
         worker = pithread(divisions)
-        threads[i] = worker
+        threads[j] = worker
 
 # distribute work
 while i < 1.0:
@@ -57,16 +57,16 @@ while i < 1.0:
                 threads[j].work[i] = ''
                 i = i + step
 
-for i in range(0,cores):
-        threads[i].start()
+for j in range(0,cores):
+        threads[j].start()
                 
 # work is distributed, now we need to collect the data
 while len(threads) > 0:
-        for i in threads.keys():
-                if not threads[i].isRunning:
-                        print sum(threads[i].work.values())
-                        miss = miss + sum(threads[i].work.values())
-                        del threads[i]
+        for j in threads.keys():
+                if not threads[j].isRunning:
+                        print sum(threads[j].work.values())
+                        miss = miss + sum(threads[j].work.values())
+                        del threads[j]
                 
 print "samples: %s misses: %s" % (samples, miss)
 
