@@ -19,7 +19,7 @@ class pithread(Thread):
                 self.isRunning = True
                 while True:
                         done = True
-                        time.sleep(1)
+                        time.sleep(5)
                         for opp in self.work.keys():
                                 if self.work[opp] == '':
                                         done = False
@@ -60,6 +60,7 @@ while i < 1.0:
 while len(threads) < 0:
         for i in threads.keys():
                 if not threads[i].isRunning:
+                        print sum(threads[i].work.values())
                         miss = miss + sum(threads[i].work.values())
                         del threads[i]
                 
