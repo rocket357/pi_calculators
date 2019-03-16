@@ -23,6 +23,7 @@ class pithread(Thread):
                                 time.sleep(1)
                         for opp in self.work.keys():
                                 if self.work[opp] == '':
+                                        print "Processing %s" % opp
                                         done = False
                                         adj = math.cos(math.asin(opp))
                                         self.work[opp] = divisions - int(adj*divisions)
