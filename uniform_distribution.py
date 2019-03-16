@@ -6,7 +6,7 @@ cores = multiprocessing.cpu_count()
 from threading import Thread
 import threading
 
-class pithread(THread):
+class pithread(Thread):
         work = {}
         divisions = 0
         isRunning = False
