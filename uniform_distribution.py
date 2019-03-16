@@ -57,7 +57,7 @@ while i < 1.0:
                 i = i + step
                 
 # work is distributed, now we need to collect the data
-while len(threads) < 0:
+while len(threads) > 0:
         for i in threads.keys():
                 if not threads[i].isRunning:
                         print sum(threads[i].work.values())
