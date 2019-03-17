@@ -2,12 +2,17 @@
 
 import sys, os, math
 
+# 10**precision "base" divisions, or 100 million * mantissa for a default of 8
+precision = 8  
+
 # as "spacing" approaches zero, accuracy goes up (as does required time)
-# based on sys.float_info.min, which on amd64/python 2.7.16 is ~2.22507 x 10^-308
-# since the exponent is -308, we can adjust "spacing" to determine how many divisions we want
-spacing = -300 
+spacing = int(round(math.log10(sys.float_info.min))) + precision  # -308 + 8 = -300, for amd64/Python 2.7.16
+
+# step is the interval between samples, based on the precision and spacing above
 step = float(sys.float_info.min) / 10**spacing
-divisions = int(1/(float(sys.float_info.min)/10**spacing))
+divisions = int(1/step)
+
+# total samples across x and y for quadrant I of the circle (r = 1)
 samples = divisions**2
 
 print "Current settings will give %s divisions from 0.0 to 1.0 for a sample size of %s" % (divisions, samples)
